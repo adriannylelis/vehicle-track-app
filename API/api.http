@@ -1,0 +1,27 @@
+###
+GET http://localhost:3000/places?text=rua professor severino ramos de queiros, 110, campo grande
+###
+GET http://localhost:3000/places?text=rua santana, 170, campo grande
+
+###
+@originId = ChIJ0yfwRRvmhpQRE1gqBkSmlis
+@destinationId = ChIJZYX_b63ohpQRbEZWEjlWNSE
+
+###
+GET http://localhost:3000/directions?originId={{originId}}&destinationId={{destinationId}}
+
+###
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+    "name": "Rota 02",
+    "source_id": "{{originId}}",
+    "destination_id": "{{destinationId}}"
+}
+
+###
+GET http://localhost:3000/routes
+
+###
+GET http://localhost:3000/routes/675871b416ee6153de6cc673
